@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.util.WebUtils;
 
 import com.horyun.myapp.domain.MemberVO;
 
@@ -30,15 +31,20 @@ public class MemberDaoImpl implements MemberDAO {
 
 	@Override
 	public MemberVO readMember(String userid) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + ".readMember");
-	}
+		return sqlSession.selectOne(NAMESPACE + ".readMember", userid);
+	} 
 
 	@Override
 	public MemberVO readWithPW(String userid, String userpw) throws Exception {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("userid", userid);
 		paramMap.put("userpw", userpw);
-		return sqlSession.selectOne(NAMESPACE + ".readMember", paramMap);
+		MemberVO vo =  sqlSession.selectOne(NAMESPACE + ".readWithPW", paramMap);
+		
+		if(vo==null){
+			throw new Exception();
+		}
+		return vo;
 	}
 
 }

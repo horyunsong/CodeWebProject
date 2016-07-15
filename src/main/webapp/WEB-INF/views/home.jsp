@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<!-- %@ page session="false" %-->
 <%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
@@ -24,7 +24,7 @@
 
 					<div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">HOME PAGE</h3>
+              <h3 class="box-title">HOME PAGE ! WELCOME ${USER_KEY.email } </h3>
             </div>
           </div>
       </div><!--/.col (left) -->

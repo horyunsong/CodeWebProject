@@ -21,4 +21,35 @@
 		<!-- 자동으로 close해서 마무리해주는 -->
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<!-- 어떤 파일들을 읽을 것인지 지정해준다 -->
+		<property name="basenames">
+			<list>
+				<value>message/msg_auth</value><!-- properties는 자동으로 가져오기 때문에 확장자 생략가능 -->
+			</list>
+		</property>
+	</bean>
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
